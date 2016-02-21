@@ -19,7 +19,7 @@ class Tests extends App_Model_Std {
         $this->_myDbClassName       = "Db_Tests";
         $this->_myDbPrimary         = "tests_id";
         $this->_myMetierClassName   = "Metier_Tests";
-        $this->_myDbTableName       = "ztdf_tests";
+        $this->_myDbTableName       = "zf_tests";
         $this->_myDbFieldPrefix     = "tests";
         if($id !== false) $this->loadById($id,$full,$champ);
     }

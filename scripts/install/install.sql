@@ -154,10 +154,10 @@ INSERT INTO `frontend_users_infos` (`userinfos_id`, `userinfos_userId`, `userinf
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_backup`
+-- Table structure for table `zf_backup`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_backup` (
+CREATE TABLE IF NOT EXISTS `zf_backup` (
   `backup_id` int(11) NOT NULL AUTO_INCREMENT,
   `backup_type` varchar(255) NOT NULL,
   `backup_path` varchar(255) NOT NULL,
@@ -172,27 +172,27 @@ CREATE TABLE IF NOT EXISTS `ztdf_backup` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_db_schema`
+-- Table structure for table `zf_db_schema`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_db_schema` (
+CREATE TABLE IF NOT EXISTS `zf_db_schema` (
   `rev_schema` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ztdf_db_schema`
+-- Dumping data for table `zf_db_schema`
 --
 
-INSERT INTO `ztdf_db_schema` (`rev_schema`) VALUES
+INSERT INTO `zf_db_schema` (`rev_schema`) VALUES
 (1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_emails`
+-- Table structure for table `zf_emails`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_emails` (
+CREATE TABLE IF NOT EXISTS `zf_emails` (
   `email_id` int(11) NOT NULL AUTO_INCREMENT,
   `email_module` varchar(255) NOT NULL,
   `email_name` varchar(255) NOT NULL,
@@ -212,10 +212,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_emails` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Table des templates d''emails' AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `ztdf_emails`
+-- Dumping data for table `zf_emails`
 --
 
-INSERT INTO `ztdf_emails` (`email_id`, `email_module`, `email_name`, `email_layout`, `email_template`, `email_vars`, `email_fromName`, `email_fromMail`, `email_replyToName`, `email_replyToMail`, `email_ccMail`, `email_bccMail`, `email_dateAdded`, `email_dateUpdated`) VALUES
+INSERT INTO `zf_emails` (`email_id`, `email_module`, `email_name`, `email_layout`, `email_template`, `email_vars`, `email_fromName`, `email_fromMail`, `email_replyToName`, `email_replyToMail`, `email_ccMail`, `email_bccMail`, `email_dateAdded`, `email_dateUpdated`) VALUES
 (1, 'backoffice', 'BACKOFFICE.TEST', 'test', 'test', 'array("name"=>"John doe","email_adresse"=>"john.doe@rcweb.io")', NULL, NULL, NULL, NULL, NULL, NULL, '2013-08-19 00:00:00', '2013-08-24 18:54:17'),
 (2, 'app', 'FRAMEWORK.NOTIFICATION', NULL, 'notification', 'array()', NULL, NULL, NULL, NULL, NULL, NULL, '2013-08-19 00:00:00', '2013-08-23 08:54:08'),
 (3, 'app', 'FRAMEWORK.QUICK_NOTIFICATION', NULL, 'quick-notification', 'array()', NULL, NULL, NULL, NULL, NULL, NULL, '2013-08-19 00:00:00', '2014-09-20 17:31:05'),
@@ -224,10 +224,10 @@ INSERT INTO `ztdf_emails` (`email_id`, `email_module`, `email_name`, `email_layo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_emails_log`
+-- Table structure for table `zf_emails_log`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_emails_log` (
+CREATE TABLE IF NOT EXISTS `zf_emails_log` (
   `emailLog_id` int(11) NOT NULL AUTO_INCREMENT,
   `emailLog_name` varchar(255) NOT NULL,
   `emailLog_templateName` varchar(255) NOT NULL,
@@ -248,10 +248,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_emails_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_flags`
+-- Table structure for table `zf_flags`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_flags` (
+CREATE TABLE IF NOT EXISTS `zf_flags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -262,10 +262,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_flags` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
--- Dumping data for table `ztdf_flags`
+-- Dumping data for table `zf_flags`
 --
 
-INSERT INTO `ztdf_flags` (`id`, `name`, `description`, `active_on_dev`, `active_on_prod`) VALUES
+INSERT INTO `zf_flags` (`id`, `name`, `description`, `active_on_dev`, `active_on_prod`) VALUES
 (1, 'backoffice-backup', 'System de backup', 1, 1),
 (2, 'backoffice-benchmark', 'System de benchmark', 1, 1),
 (3, 'backoffice-dashboard', 'Default entry point in the dashboard', 1, 1),
@@ -291,10 +291,10 @@ INSERT INTO `ztdf_flags` (`id`, `name`, `description`, `active_on_dev`, `active_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_flippers`
+-- Table structure for table `zf_flippers`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_flippers` (
+CREATE TABLE IF NOT EXISTS `zf_flippers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` int(11) unsigned NOT NULL,
   `flag_id` int(11) unsigned NOT NULL,
@@ -304,10 +304,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_flippers` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=346 ;
 
 --
--- Dumping data for table `ztdf_flippers`
+-- Dumping data for table `zf_flippers`
 --
 
-INSERT INTO `ztdf_flippers` (`id`, `group_id`, `flag_id`, `privilege_id`, `allow`) VALUES
+INSERT INTO `zf_flippers` (`id`, `group_id`, `flag_id`, `privilege_id`, `allow`) VALUES
 (3, 4, 1, 1, 1),
 (4, 4, 1, 2, 1),
 (5, 4, 1, 3, 1),
@@ -386,10 +386,10 @@ INSERT INTO `ztdf_flippers` (`id`, `group_id`, `flag_id`, `privilege_id`, `allow
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_groups`
+-- Table structure for table `zf_groups`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_groups` (
+CREATE TABLE IF NOT EXISTS `zf_groups` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(25) DEFAULT NULL,
   `parent_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -399,10 +399,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_groups` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `ztdf_groups`
+-- Dumping data for table `zf_groups`
 --
 
-INSERT INTO `ztdf_groups` (`id`, `name`, `parent_id`) VALUES
+INSERT INTO `zf_groups` (`id`, `name`, `parent_id`) VALUES
 (1, 'god', 0),
 (2, 'guests', 0),
 (3, 'members', 0),
@@ -412,10 +412,10 @@ INSERT INTO `ztdf_groups` (`id`, `name`, `parent_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_logperf`
+-- Table structure for table `zf_logperf`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_logperf` (
+CREATE TABLE IF NOT EXISTS `zf_logperf` (
   `logperf_id` int(11) NOT NULL AUTO_INCREMENT,
   `logperf_ip` varchar(25) NOT NULL,
   `logperf_user_agent` varchar(255) NOT NULL,
@@ -439,10 +439,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_logperf` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_online`
+-- Table structure for table `zf_online`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_online` (
+CREATE TABLE IF NOT EXISTS `zf_online` (
   `online_id` int(11) NOT NULL AUTO_INCREMENT,
   `online_session` varchar(255) DEFAULT NULL,
   `online_ip` varchar(15) NOT NULL,
@@ -462,10 +462,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_online` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_paramcustom`
+-- Table structure for table `zf_paramcustom`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_paramcustom` (
+CREATE TABLE IF NOT EXISTS `zf_paramcustom` (
   `paramcustom_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `paramcustom_SiteId` bigint(20) NOT NULL,
   `paramcustom_Name` varchar(35) NOT NULL,
@@ -479,10 +479,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_paramcustom` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Table des paramétrages' AUTO_INCREMENT=224 ;
 
 --
--- Dumping data for table `ztdf_paramcustom`
+-- Dumping data for table `zf_paramcustom`
 --
 
-INSERT INTO `ztdf_paramcustom` (`paramcustom_Id`, `paramcustom_SiteId`, `paramcustom_Name`, `paramcustom_Scope`, `paramcustom_Value`, `paramcustom_LevelAccess`) VALUES
+INSERT INTO `zf_paramcustom` (`paramcustom_Id`, `paramcustom_SiteId`, `paramcustom_Name`, `paramcustom_Scope`, `paramcustom_Value`, `paramcustom_LevelAccess`) VALUES
 (1, 1, 'NOM.APPLI', 'FRAMEWORK', 'RCWEB', 1),
 (2, 1, 'FRAMEWORK.ERROR_SHOW_DETAILS', 'FRAMEWORK', '0', 1),
 (3, 1, 'MAIL.SEND_METHOD', 'FRAMEWORK', 'smtp', 1),
@@ -570,10 +570,10 @@ INSERT INTO `ztdf_paramcustom` (`paramcustom_Id`, `paramcustom_SiteId`, `paramcu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_paramdefault`
+-- Table structure for table `zf_paramdefault`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_paramdefault` (
+CREATE TABLE IF NOT EXISTS `zf_paramdefault` (
   `paramdefault_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `paramdefault_Name` varchar(50) NOT NULL,
   `paramdefault_Scope` varchar(20) NOT NULL DEFAULT 'ALL',
@@ -586,10 +586,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_paramdefault` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Table des valeurs par défaut de paramétrage' AUTO_INCREMENT=28 ;
 
 --
--- Dumping data for table `ztdf_paramdefault`
+-- Dumping data for table `zf_paramdefault`
 --
 
-INSERT INTO `ztdf_paramdefault` (`paramdefault_Id`, `paramdefault_Name`, `paramdefault_Scope`, `paramdefault_Value`, `paramdefault_Commentaire`, `paramdefault_Type`, `paramdefault_LevelAccess`) VALUES
+INSERT INTO `zf_paramdefault` (`paramdefault_Id`, `paramdefault_Name`, `paramdefault_Scope`, `paramdefault_Value`, `paramdefault_Commentaire`, `paramdefault_Type`, `paramdefault_LevelAccess`) VALUES
 (1, 'NOM.APPLI', 'FRAMEWORK', 'RCWEB', 'Nom de l''application', 1, 1),
 (2, 'FRAMEWORK.ERROR_SHOW_DETAILS', 'FRAMEWORK', '1', 'Affiche (1) ou non (0) le détails des erreurs / exception', 1, 1),
 (3, 'MAIL.SEND_METHOD', 'FRAMEWORK', 'sendmail', 'smtp,mail,qmail,sendmail', 1, 1),
@@ -621,10 +621,10 @@ INSERT INTO `ztdf_paramdefault` (`paramdefault_Id`, `paramdefault_Name`, `paramd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_portails`
+-- Table structure for table `zf_portails`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_portails` (
+CREATE TABLE IF NOT EXISTS `zf_portails` (
   `portail_id` int(11) NOT NULL AUTO_INCREMENT,
   `portail_code` varchar(255) NOT NULL,
   `portail_libelle` varchar(255) NOT NULL,
@@ -638,10 +638,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_portails` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Table des portails' AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `ztdf_portails`
+-- Dumping data for table `zf_portails`
 --
 
-INSERT INTO `ztdf_portails` (`portail_id`, `portail_code`, `portail_libelle`, `portail_commentaire`, `portail_environnement`, `portail_theme`, `portail_dateAdded`, `portail_dateUpdated`) VALUES
+INSERT INTO `zf_portails` (`portail_id`, `portail_code`, `portail_libelle`, `portail_commentaire`, `portail_environnement`, `portail_theme`, `portail_dateAdded`, `portail_dateUpdated`) VALUES
 (1, 'localhost', 'Dev', 'Portail local de dev', 'development', 'default', NULL, '2014-11-09 10:33:51'),
 (2, 'recette', 'Recette', 'Portail de recette', 'staging', 'default', NULL, '2013-08-07 20:30:01'),
 (3, 'prod', 'Prod', 'Portail de prod', 'production', 'default', NULL, '2013-08-07 20:30:01');
@@ -649,10 +649,10 @@ INSERT INTO `ztdf_portails` (`portail_id`, `portail_code`, `portail_libelle`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_portailurl`
+-- Table structure for table `zf_portailurl`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_portailurl` (
+CREATE TABLE IF NOT EXISTS `zf_portailurl` (
   `portailurl_id` int(11) NOT NULL AUTO_INCREMENT,
   `portailurl_portail_id` int(11) NOT NULL,
   `portailurl_url` varchar(255) NOT NULL,
@@ -663,20 +663,20 @@ CREATE TABLE IF NOT EXISTS `ztdf_portailurl` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Table des url des portails' AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `ztdf_portailurl`
+-- Dumping data for table `zf_portailurl`
 --
 
-INSERT INTO `ztdf_portailurl` (`portailurl_id`, `portailurl_portail_id`, `portailurl_url`, `portailurl_dateAdded`, `portailurl_dateUpdated`) VALUES
+INSERT INTO `zf_portailurl` (`portailurl_id`, `portailurl_portail_id`, `portailurl_url`, `portailurl_dateAdded`, `portailurl_dateUpdated`) VALUES
 (1, 1, 'zendskeleton112', NULL, '2015-12-26 15:20:46'),
 (2, 1, 'zendskeleton112-back', '2013-08-07 09:00:00', '2015-12-26 15:20:50');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ztdf_privileges`
+-- Table structure for table `zf_privileges`
 --
 
-CREATE TABLE IF NOT EXISTS `ztdf_privileges` (
+CREATE TABLE IF NOT EXISTS `zf_privileges` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `flag_id` varchar(20) NOT NULL,
@@ -687,10 +687,10 @@ CREATE TABLE IF NOT EXISTS `ztdf_privileges` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=92 ;
 
 --
--- Dumping data for table `ztdf_privileges`
+-- Dumping data for table `zf_privileges`
 --
 
-INSERT INTO `ztdf_privileges` (`id`, `name`, `flag_id`, `description`) VALUES
+INSERT INTO `zf_privileges` (`id`, `name`, `flag_id`, `description`) VALUES
 (1, 'index', '1', 'Index des backups'),
 (2, 'bdd', '1', 'Backup de la bdd'),
 (3, 'files', '1', 'Backup des fichiers'),

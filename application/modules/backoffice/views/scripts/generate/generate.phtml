@@ -1,6 +1,7 @@
 <?php
 $table = $this->table;
 $info = $this->tableInfo;
+debug($info);
 $objet = $this->objet;
 $fieldPrefixe = $this->fieldPrefixe;
 $objetName = strtolower($this->objet);
@@ -104,10 +105,36 @@ class <?=$objet?> extends App_Model_Std {
         $this->_myDbTableName       = "<?=$info['name']?>";
         $this->_myDbFieldPrefix     = "<?=$fieldPrefixe?>";
 
-        if($id !== false) $this->loadById($id,$full,$champ);
+        if($id) $this->loadById($id,$full,$champ);
     }
 
+
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+<?php
+foreach($info["cols"] as $col){
+?>
+	/**
+	* @param <?=$info['metadata'][$col]['DATA_TYPE']?> $<?=$col;?>
+
+	*/
+	public function set<?=ucwords($col);?>($<?=$col;?>)
+	{
+	    $this-><?=$col;?> = $<?=$col;?>;
+	}
+
+	/**
+	* @return the  $<?=$col;?>
+
+	*/
+	public function get<?=ucwords($col);?>()
+	{
+	    return $this-><?=$col;?>;
+	}
+
+<?php } ?>
+
 }
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
 </pre>

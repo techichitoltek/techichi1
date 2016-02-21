@@ -6,7 +6,7 @@ class Db_LogPerf extends App_Model_Db {
         $this->_myDbClassName       = "Db_LogPerf";
         $this->_myDbPrimary         = "logperf_id";
         $this->_myMetierClassName   = "LogPerf";
-        $this->_myDbTableName       = "ztdf_logperf";
+        $this->_myDbTableName       = "zf_logperf";
         $this->_myDbFieldPrefix     = "logperf";
 
         parent::__construct();

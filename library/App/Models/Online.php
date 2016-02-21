@@ -27,7 +27,7 @@ class Online extends App_Model_Std {
         $this->_myDbClassName       = "Db_Online";
         $this->_myDbPrimary         = "online_id";
         $this->_myMetierClassName   = "Online";
-        $this->_myDbTableName       = "ztdf_online";
+        $this->_myDbTableName       = "zf_online";
         $this->_myDbFieldPrefix     = "online";
 
         if($id !== false) $this->loadById($id,$full,$champ);
@@ -225,7 +225,7 @@ class Online extends App_Model_Std {
         // on calcule le temps imparti pour comptabiliser les connectés au site
         $heure_max = $temps_actuel - $tps_max_connex;
 
-        $sql = 'DELETE FROM ztdf_online WHERE online_time < '.$heure_max;
+        $sql = 'DELETE FROM zf_online WHERE online_time < '.$heure_max;
         $objDb->Db_execute($sql);
 
     }

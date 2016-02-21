@@ -28,7 +28,7 @@ class Email extends App_Model_Std {
         $this->_myDbClassName       = "Db_Email";
         $this->_myDbPrimary         = "email_id";
         $this->_myMetierClassName   = "Email";
-        $this->_myDbTableName       = "ztdf_emails";
+        $this->_myDbTableName       = "zf_emails";
         $this->_myDbFieldPrefix     = "email";
 
         if($id !== false) $this->loadById($id,$full,$champ);

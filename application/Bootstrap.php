@@ -553,7 +553,7 @@ class Bootstrap extends App_Bootstrap_Abstract
             if(file_exists($schemaPath.'/schema.php')){
                 include_once $schemaPath.'/schema.php';
                 $select = $db->select()
-                ->from( 'ztdf_db_schema' );
+                ->from( 'zf_db_schema' );
                 $stmt = $select->query();
                 $result = $stmt->fetch();
                 $current_rev = $result["rev_schema"];

@@ -74,10 +74,10 @@ class ParamsController extends App_Backoffice_Controller
      */
     public function exportparamAction(){
         $tabParametres =
-                array(	"system"=>		array("libelle"=>"Paramétrage des droits","commentaire"=>"","tables"=>array("ztdf_flags","ztdf_flippers","ztdf_groups","ztdf_privileges")),
-                          "parametrage"=>	array("libelle"=>"Paramétrage de l'application","commentaire"=>"","tables"=>array("ztdf_paramcustom","ztdf_paramdefault")),
-                        "emails"=>		array("libelle"=>"Paramétrage des emails","commentaire"=>"","tables"=>array("ztdf_emails")),
-                        "portails"=>	array("libelle"=>"Paramétrage des portails","commentaire"=>"","tables"=>array("ztdf_portails","ztdf_portailurl")));
+                array(	"system"=>		array("libelle"=>"Paramétrage des droits","commentaire"=>"","tables"=>array("zf_flags","zf_flippers","zf_groups","zf_privileges")),
+                          "parametrage"=>	array("libelle"=>"Paramétrage de l'application","commentaire"=>"","tables"=>array("zf_paramcustom","zf_paramdefault")),
+                        "emails"=>		array("libelle"=>"Paramétrage des emails","commentaire"=>"","tables"=>array("zf_emails")),
+                        "portails"=>	array("libelle"=>"Paramétrage des portails","commentaire"=>"","tables"=>array("zf_portails","zf_portailurl")));
 
         $this->view->tabParametres = $tabParametres;
 

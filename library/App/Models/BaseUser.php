@@ -5,7 +5,7 @@
  *
  * @category App
  * @package App_Model
- * @copyright RCWEB
+ * @copyright TD-System
  */
 
 class BaseUser extends App_Model
@@ -81,6 +81,7 @@ class BaseUser extends App_Model
                         foreach(get_object_vars($loggedUser) as $k => $v){
                             $session->{$k} = $v;
                         }
+						$session->group = new stdClass();
                         $session->group->name = $user->group->name;
                         break;
                 }

@@ -40,6 +40,21 @@ class UserController extends App_Frontend_Controller
      */
     public function accueilAction()
     {
+    	$user = $this->user; /* @var $user User */
+    	$this->view->user = $user;
+    	if($user->getId()){
+    		//debug('utilisateur connecté: '.$this->user->getUserInfos()->getUserinfos_nom());
+    	}
+    }
+
+    /**
+     * Ajouter un compte utilisateur
+     *
+     * @return void
+     */
+    public function addaccountAction()
+    {
 
     }
+
 }

@@ -28,7 +28,7 @@ class EmailLog extends App_Model_Std {
         $this->_myDbClassName       = "Db_EmailLog";
         $this->_myDbPrimary         = "emailLog_id";
         $this->_myMetierClassName   = "EmailLog";
-        $this->_myDbTableName       = "ztdf_emails_log";
+        $this->_myDbTableName       = "zf_emails_log";
         $this->_myDbFieldPrefix     = "emailLog";
 
         if($id !== false) $this->loadById($id,$full,$champ);

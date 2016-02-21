@@ -74,7 +74,7 @@ class App_Cli_FlagFlippers
     public function generateInserts(array $resources){
         $quotedName = $this->_db->quoteIdentifier('name');
         $quotedDescription = $this->_db->quoteIdentifier('description');
-        $quotedFlagsTable = $this->_db->quoteIdentifier('ztdf_flags');
+        $quotedFlagsTable = $this->_db->quoteIdentifier('zf_flags');
 
         $insertResourceTemplate = sprintf(
             'INSERT IGNORE INTO %s (%s, %s) VALUES (?, ?);',
@@ -103,7 +103,7 @@ class App_Cli_FlagFlippers
             // ready the insert privilege query
             $insertPrivilegeSql = sprintf(
                 'INSERT IGNORE INTO %s (%s, %s, %s) VALUES ',
-                $this->_db->quoteIdentifier('ztdf_privileges'),
+                $this->_db->quoteIdentifier('zf_privileges'),
                 $this->_db->quoteIdentifier('flag_id'),
                 $quotedName,
                 $quotedDescription

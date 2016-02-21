@@ -5,7 +5,7 @@
  * Mettre le nom de la table en base de données
  *
  */
-define("CL_PARAMCUSTOM_TABLE_NAME","ztdf_paramcustom");
+define("CL_PARAMCUSTOM_TABLE_NAME","zf_paramcustom");
 class ParamCustom extends Zend_Db_Table{
 
     public static $indexKey = 'paramCustom';

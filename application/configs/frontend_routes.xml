@@ -1,5 +1,6 @@
 <configdata>
     <routes>
+        <!-- INDEX POINT -->
         <home type="Zend_Controller_Router_Route">
             <route>/test</route>
             <defaults module="frontend" controller="index" action="index"/>
@@ -10,12 +11,27 @@
             <defaults module="frontend" controller="profile" action="login"/>
         </login>
 
+        <logout type="Zend_Controller_Router_Route">
+            <route>/logout</route>
+            <defaults module="frontend" controller="profile" action="logout"/>
+        </logout>
 
 
+
+        <!-- UTILISATEUR POINT -->
         <user_accueil type="Zend_Controller_Router_Route">
             <route>/user-accueil</route>
             <defaults module="frontend" controller="user" action="accueil"/>
         </user_accueil>
+
+        <user_addaccount type="Zend_Controller_Router_Route">
+            <route>/user-addaccount</route>
+            <defaults module="frontend" controller="user" action="addaccount"/>
+        </user_addaccount>
+
+
+
+
 
 
         <test_accueil type="Zend_Controller_Router_Route">

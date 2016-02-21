@@ -6,7 +6,7 @@ class Db_EmailLog extends App_Model_Db {
         $this->_myDbClassName       = "Db_EmailLog";
         $this->_myDbPrimary         = "emailLog_id";
         $this->_myMetierClassName   = "EmailLog";
-        $this->_myDbTableName       = "ztdf_emails_log";
+        $this->_myDbTableName       = "zf_emails_log";
         $this->_myDbFieldPrefix     = "emailLog";
 
         parent::__construct();

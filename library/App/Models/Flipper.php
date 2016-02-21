@@ -29,7 +29,7 @@ class Flipper extends App_Model
      * @var string
      * @access protected
      */
-    protected $_name = 'ztdf_flippers';
+    protected $_name = 'zf_flippers';
 
     /**
      * Holds the associated model class

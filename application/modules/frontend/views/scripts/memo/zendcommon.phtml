@@ -109,9 +109,9 @@ $app_directory = FRONTEND_IMPORT_PATH_ABS;
 <h3>ParamDefault & ParamCustom - Définir constante en bdd</h3>
 <div class="note">
 <pre>
-On défini la constante par défaut via la table <strong>ztdf_paramdefault</strong> :
+On défini la constante par défaut via la table <strong>zf_paramdefault</strong> :
 
-<img src="<?=$this->serverUrl().$this->designUrl();?>/images/memo_capture/ztdf_paramdefault.JPG">
+<img src="<?=$this->serverUrl().$this->designUrl();?>/images/memo_capture/zf_paramdefault.JPG">
 
 paramdefault_Name : nom du paramètre tel que référencé par l'application
 paramdefault_Scope : indiquer ici le nom du module en CAPITAL
@@ -121,11 +121,11 @@ paramdefault_Type : mettre 1
 paramdefault_LevelAccess : mettre 1
 
 
-On peut également adapter la constante selon le portail (dev - prod ..) via la table <strong>ztdf_paramcustom</strong> :
+On peut également adapter la constante selon le portail (dev - prod ..) via la table <strong>zf_paramcustom</strong> :
 
-<img src="<?=$this->serverUrl().$this->designUrl();?>/images/memo_capture/ztdf_paramcustom.JPG">
+<img src="<?=$this->serverUrl().$this->designUrl();?>/images/memo_capture/zf_paramcustom.JPG">
 
-paramcustom_SiteId : indiquer ici l'id du portail (accessible depuis table <strong>ztdf_portailurl</strong>)
+paramcustom_SiteId : indiquer ici l'id du portail (accessible depuis table <strong>zf_portailurl</strong>)
 
 
 Utilisation:
@@ -343,9 +343,9 @@ Se rendre dans le répertoire <strong>application/modules/nom_module/views/email
 - créer un fichier alerte-mail-common.phtml
 - créer un fichier alerte-amil-common.subject.phtml
 
-Ajouter une entrée dans la table <strong>ztdf_emails</strong>
+Ajouter une entrée dans la table <strong>zf_emails</strong>
 
-<img src="<?=$this->serverUrl().$this->designUrl();?>/images/memo_capture/ztdf_emails.JPG">
+<img src="<?=$this->serverUrl().$this->designUrl();?>/images/memo_capture/zf_emails.JPG">
 
 	</pre>
 </div>

@@ -24,7 +24,7 @@ class PortailUrl extends App_Model_Std {
         $this->_myDbClassName       = "Db_PortailUrl";
         $this->_myDbPrimary         = "portailurl_id";
         $this->_myMetierClassName   = "PortailUrl";
-        $this->_myDbTableName       = "ztdf_portailurl";
+        $this->_myDbTableName       = "zf_portailurl";
         $this->_myDbFieldPrefix     = "portailurl";
 
         if($id !== false) $this->loadById($id,$full,$champ);

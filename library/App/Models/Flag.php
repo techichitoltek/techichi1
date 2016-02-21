@@ -23,7 +23,7 @@ class Flag extends App_Model
      * @var string
      * @access protected
      */
-    protected $_name = 'ztdf_flags';
+    protected $_name = 'zf_flags';
 
     /**
      * Holds the associated model class
@@ -95,7 +95,7 @@ class Flag extends App_Model
         $select = $this->_select();
         $select->setIntegrityCheck(FALSE);
         $select->from(array('r' => $this->_name));
-        $select->join(array('p' => 'ztdf_privileges'), 'r.id = p.flag_id');
+        $select->join(array('p' => 'zf_privileges'), 'r.id = p.flag_id');
         $select->where('r.name = ?', $resource);
         $select->where('p.name = ?', $privilege);
         $select->reset(Zend_Db_Table::COLUMNS);

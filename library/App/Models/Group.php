@@ -22,7 +22,7 @@ class Group extends App_Model
      * @var string
      * @access protected
      */
-    protected $_name = 'ztdf_groups';
+    protected $_name = 'zf_groups';
 
     /**
      * Holds the associated model class

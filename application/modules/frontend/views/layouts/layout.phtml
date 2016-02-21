@@ -31,9 +31,9 @@ if(Zend_Controller_Front::getInstance()->hasPlugin('ZFDebug_Controller_Plugin_De
 //Autoload js files
 $this->AutoloadResources();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
+<!DOCTYPE html>
+<html>
+    <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="content-style-type" content="text/css" />
     <meta http-equiv="content-script-type" content="text/javascript" />
@@ -57,27 +57,37 @@ $this->AutoloadResources();
 
 </head>
 <body>
+
+<?php echo $this->flashMessenger();?>
+<?php echo $this->layout()->content;?>
+
+<!--
     <div id="page">
         <div id="header">
             <div class="wrapper">
-                <?php echo $this->partial('partials/header.phtml'); ?>
+                <?php // echo $this->partial('partials/header.phtml'); ?>
             </div>
         </div>
         <div id="content">
             <div class="wrapper">
-                <?php echo $this->flashMessenger();?>
-                <?php echo $this->render('partials/left-side-menu.phtml');?>
+                <?php // echo $this->flashMessenger();?>
+                <?php // echo $this->render('partials/left-side-menu.phtml');?>
                 <div id="view-content">
-                	<?php echo $this->layout()->content;?>
+                	<?php // echo $this->layout()->content;?>
                 </div>
             </div>
         </div>
         <div id="footer">
             <div class="wrapper">
-                <?php echo $this->partial('partials/footer.phtml'); ?>
+                <?php // echo $this->partial('partials/footer.phtml'); ?>
             </div>
         </div>
     </div>
+ -->
+
+
+
+
     <!-- add the js files -->
     <?php echo $this->headScript() . PHP_EOL;?>
     <?php //echo $this->jQuery() . PHP_EOL; ?>

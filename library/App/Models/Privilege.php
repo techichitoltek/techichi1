@@ -22,7 +22,7 @@ class Privilege extends App_Model
      * @var string
      * @access protected
      */
-    protected $_name = 'ztdf_privileges';
+    protected $_name = 'zf_privileges';
 
     /**
      * Holds the associated model class

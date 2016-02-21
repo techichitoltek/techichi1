@@ -19,7 +19,7 @@ class FrontendGroups extends App_Model_Std {
         $this->_myDbClassName       = "Db_FrontendGroups";
         $this->_myDbPrimary         = "id";
         $this->_myMetierClassName   = "FrontendGroups";
-        $this->_myDbTableName       = "ztdf_groups";
+        $this->_myDbTableName       = "zf_groups";
         $this->_myDbFieldPrefix     = "";
 
         if($id !== false) $this->loadById($id,$full,$champ);

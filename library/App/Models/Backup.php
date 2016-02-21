@@ -31,7 +31,7 @@ class Backup extends App_Model_Std {
         $this->_myDbClassName       = "Db_Backup";
         $this->_myDbPrimary         = "backup_id";
         $this->_myMetierClassName   = "Backup";
-        $this->_myDbTableName       = "ztdf_backup";
+        $this->_myDbTableName       = "zf_backup";
         $this->_myDbFieldPrefix     = "backup";
 
         if($id !== false) $this->loadById($id,$full,$champ);

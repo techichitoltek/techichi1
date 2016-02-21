@@ -52,7 +52,6 @@ class ProfileController extends App_Frontend_Controller
 	public function loginAction(){
 	    if($this->user->getId()){
 	        $this->getHelper("redirector")->gotoRoute(array(),"profile");
-
 	    }
         $this->title = 'Authentification';
 
@@ -69,8 +68,6 @@ class ProfileController extends App_Frontend_Controller
                         //$this->_redirect($previousUri);
                     }else{
                     	debug('we are connected');
-
-
                         $this->_redirect('/profile/');
                     }
                 }

@@ -5,7 +5,7 @@
  * Mettre le nom de la table en base de données
  *
  */
-define("CL_PARAMDEFAULT_TABLE_NAME","ztdf_paramdefault");
+define("CL_PARAMDEFAULT_TABLE_NAME","zf_paramdefault");
 class ParamDefault extends Zend_Db_Table{
 
     protected $_name = CL_PARAMDEFAULT_TABLE_NAME;

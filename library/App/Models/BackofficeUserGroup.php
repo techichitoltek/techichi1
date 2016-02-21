@@ -68,7 +68,7 @@ class BackofficeUserGroup extends App_Model
 
         if ($fullData) {
             $select->from(array('ug' => $this->_name));
-            $select->join(array('g' => 'ztdf_groups'), 'ug.group_id = g.id');
+            $select->join(array('g' => 'zf_groups'), 'ug.group_id = g.id');
         }
 
         $select->where('user_id = ?', $userId);

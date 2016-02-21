@@ -24,7 +24,7 @@ class GroupForm extends App_Backoffice_Form
 
         $uniqueGroupNameValidator = new Zend_Validate_Db_NoRecordExists(
             array(
-                'table' => 'ztdf_groups',
+                'table' => 'zf_groups',
                 'field' => 'name',
             )
         );
