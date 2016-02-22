@@ -1,0 +1,60 @@
+<?php
+/* @var $this App_View_Abstract */
+
+//https://www.google.com/recaptcha/api.js
+$form = $this->form;
+?>
+
+<div class="container shortcode">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Déjà un compte ?</h2>
+                        <div class="testimonial style1 box">
+                            <div class="testimonial-viewport" style="overflow: hidden; position: relative;">
+                                <?php if (isset($this->error)):?>
+                                    <div class="msg msg-error">
+                                        <p><?php echo '<strong>Erreur : </strong><br />Identifiant ou mot de passe invalide.';?></p>
+                                    </div>
+                                <?php endif;?>
+
+                                <div class=" clearfix">
+                                    <form <?=$form->renderFormHtml()?> class="contact-form">
+                                        <?php
+                        		        echo $form->renderHiddenFields();
+                        		        echo $form->renderCsrf();
+                        		        ?>
+                        		        <div class="row">
+                                            <div class="form-group col-sm-6 col-md-5">
+                                                <p class="pull-right">Adresse e-mail</p>
+                                            </div>
+                                            <div class="form-group col-sm-6 col-md-6">
+                                                <?=$form->username->renderViewHelper()?>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-sm-6 col-md-5">
+                                                <p class="pull-right">Mot de passe</p>
+                                            </div>
+                                            <div class="form-group col-sm-6 col-md-6">
+                                                <?=$form->password->renderViewHelper()?>
+                                            </div>
+                                        </div>
+                        		        <div class="row">
+                            		        <div class="form-group row">
+                                                <div class="col-sm-6 col-md-5">
+                                                    <button type="submit" class="full-width btn-large">Identifiez-vous →</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                    		        </form>
+                    		        <!--
+                                    <?php
+                                    Zend_Debug::dump($form->getErrors());
+                                    ?><!--  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
