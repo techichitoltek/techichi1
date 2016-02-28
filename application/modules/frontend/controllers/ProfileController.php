@@ -51,7 +51,8 @@ class ProfileController extends App_Frontend_Controller
      */
 	public function loginAction(){
 	    if($this->user->getId()){
-	        $this->getHelper("redirector")->gotoRoute(array(),"profile");
+	    	$this->getHelper("redirector")->gotoRoute(array(),"user_accueil");
+	        //$this->getHelper("redirector")->gotoRoute(array(),"profile");
 	    }
         $this->title = 'Authentification';
 
@@ -68,7 +69,8 @@ class ProfileController extends App_Frontend_Controller
                         //$this->_redirect($previousUri);
                     }else{
                     	debug('we are connected');
-                        $this->_redirect('/profile/');
+                    	$this->getHelper("redirector")->gotoRoute(array(),"user_accueil");
+                       // $this->_redirect('/profile/');
                     }
                 }
             }
@@ -93,7 +95,10 @@ class ProfileController extends App_Frontend_Controller
         Zend_Session::destroy();
 
         // go to the login page
-        $this->_redirect('/profile/login/');
+        //$this->_redirect('/profile/login/');
+
+        // go to index
+        $this->_redirect('/');
     }
 
 

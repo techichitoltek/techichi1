@@ -11,7 +11,6 @@ class UserInfos extends App_Model_Std {
 	protected $userinfos_telephone = null;
 	protected $userinfos_mail = null;
 	protected $userinfos_active = 1;
-	protected $userinfos_isDel = null;
 	protected $userinfos_dateCgu = null;
 	protected $userinfos_isVendeur = 0;
 	protected $userinfos_cp = "";
@@ -21,9 +20,10 @@ class UserInfos extends App_Model_Std {
 	protected $userinfos_code_pays = 250;
 	protected $userinfos_adresse1 = "";
 	protected $userinfos_adresse2 = null;
-	protected $userinfos_evaluation_moyenne = "";
+	protected $userinfos_evaluation_moyenne = null;
+	protected $userinfos_deleted = null;
 	protected $userinfos_dateAdded = null;
-	protected $userinfos_dateUpdated = CURRENT_TIMESTAMP;
+	protected $userinfos_dateUpdated = null;
 
 
 	/* /Champs de la table */
@@ -155,22 +155,6 @@ class UserInfos extends App_Model_Std {
 	public function getUserinfos_active()
 	{
 		return $this->userinfos_active;
-	}
-
-	/**
-	 * @param int $userinfos_isDel
-	 */
-	public function setUserinfos_isDel($userinfos_isDel)
-	{
-		$this->userinfos_isDel = $userinfos_isDel;
-	}
-
-	/**
-	 * @return the  $userinfos_isDel
-	 */
-	public function getUserinfos_isDel()
-	{
-		return $this->userinfos_isDel;
 	}
 
 	/**
@@ -331,6 +315,22 @@ class UserInfos extends App_Model_Std {
 	public function getUserinfos_evaluation_moyenne()
 	{
 		return $this->userinfos_evaluation_moyenne;
+	}
+
+	/**
+	 * @param int $userinfos_deleted
+	 */
+	public function setUserinfos_deleted($userinfos_deleted)
+	{
+		$this->userinfos_deleted = $userinfos_deleted;
+	}
+
+	/**
+	 * @return the $userinfos_deleted
+	 */
+	public function getUserinfos_deleted()
+	{
+		return $this->userinfos_deleted;
 	}
 
 	/**

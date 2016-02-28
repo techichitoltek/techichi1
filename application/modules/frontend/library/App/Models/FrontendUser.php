@@ -108,15 +108,15 @@ class FrontendUser extends BaseUser
                 $session = new stdClass();
 
                 foreach(get_object_vars($loggedUser) as $k => $v){
-                    $session->{$k} = $v;
+                	$session->{$k} = $v;
                 }
 
                 if(count($user->groups) > 1){
-                    foreach($user->group as $g){
-                        $session->group->name[] = $g->name;
-                    }
+                	foreach($user->group as $g){
+                		$session->group->name[] = $g->name;
+                	}
                 }else{
-                    $session->group->name = $user->group->name;
+                	$session->group->name[] = $user->group->name;
                 }
 
                 $auth->getStorage()->write($session);

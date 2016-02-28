@@ -30,7 +30,21 @@ class IndexController extends App_Frontend_Controller
      */
     public function indexAction()
     {
-    	$this->_redirect('/user-accueil');
+		$this->redirect('/accueil');
+    }
+
+    /**
+     * Accueil guest
+     *
+     * @access public
+     * @return void
+     */
+    public function accueilAction()
+    {
+		$mod_enchere = new EnchereSearch();
+		$activeEnchereListe = $mod_enchere->getActiveEnchereListe();
+		$this->view->activeEnchereListe = $activeEnchereListe;
+
     }
 
     /**

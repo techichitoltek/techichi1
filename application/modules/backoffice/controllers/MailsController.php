@@ -41,7 +41,7 @@ class MailsController extends App_Backoffice_Controller
     public function testAction(){
         $mail = new App_Mail("BACKOFFICE.TEST");
 
-        $mail->AddAddress("adressemail@mail.fr","your name");
+        $mail->AddAddress("tech@rcweb.io","your name");
 
         $res = $mail->send();
         Zend_Debug::dump($res);

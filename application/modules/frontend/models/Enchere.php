@@ -14,6 +14,7 @@ class Enchere extends App_Model_Std {
 
 	protected $enchere_id = 0;
 	protected $enchere_statut_id = "";
+	protected $enchere_incident_id = null;
 	protected $enchere_vendeur_id = "";
 	protected $enchere_acheteur_id = null;
 	protected $enchere_transaction_id = null;
@@ -65,6 +66,22 @@ class Enchere extends App_Model_Std {
 	public function getEnchere_id()
 	{
 		return $this->enchere_id;
+	}
+
+	/**
+	 * @param int $enchere_incident_id
+	 */
+	public function setEnchere_incident_id($enchere_incident_id)
+	{
+		$this->enchere_incident_id = $enchere_incident_id;
+	}
+
+	/**
+	 * @return the  $enchere_incident_id
+	 */
+	public function getEnchere_incident_id()
+	{
+		return $this->enchere_incident_id;
 	}
 
 	/**
@@ -339,5 +356,26 @@ class Enchere extends App_Model_Std {
 		return $this->enchere_dateUpdated;
 	}
 
+	/**
+	 *
+	 * @return Produit
+	 */
+	public function getProduit(){
+		if(!$this->enchere_produit){
+			$this->enchere_produit = new CatalogueProduitSearch($this->enchere_produit_id);
+		}
+		return $this->enchere_produit;
+	}
+
+	public function getActiveEnchereListe(){
+		$objDB = new $this->_myDbClassName(); /* @var $objDB Db_EnchereSearch */
+		$select = $objDB->SearchSelectBuild();
+		return $this->getListe(false,$select);
+	}
+
+	public function getLastTransactionBid(){
+		$mod_transaction = new TransactionSearch();
+		return $mod_transaction->getLastTransactionBidObject($this->enchere_id);
+	}
 
 }

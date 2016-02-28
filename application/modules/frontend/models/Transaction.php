@@ -13,17 +13,19 @@ class Transaction extends App_Model_Std {
 	/* Champs de la table */
 
 	protected $transaction_id = 0;
+	protected $transaction_type = 0;
 	protected $transaction_enchere_id = "";
 	protected $transaction_date = "";
 	protected $transaction_acheteur_id = null;
 	protected $transaction_vendeur_id = "";
 	protected $transaction_montant = null;
 	protected $transaction_incident_id = null;
-	protected $transaction_paimeent_valide = 0;
+	protected $transaction_paiement_valide = 0;
 	protected $transaction_annule = 0;
 	protected $transaction_livraison_date = null;
 	protected $transaction_reception_date = null;
 	protected $transaction_evaluation_id = null;
+	protected $transaction_deleted = 0;
 	protected $transaction_dateAdded = null;
 	protected $transaction_dateUpdated = null;
 
@@ -61,6 +63,22 @@ class Transaction extends App_Model_Std {
 	public function getTransaction_id()
 	{
 		return $this->transaction_id;
+	}
+
+	/**
+	 * @param int $transaction_type
+	 */
+	public function setTransaction_type($transaction_type)
+	{
+		$this->transaction_type = $transaction_type;
+	}
+
+	/**
+	 * @return the $transaction_type
+	 */
+	public function getTransaction_type()
+	{
+		return $this->transaction_type;
 	}
 
 	/**
@@ -160,19 +178,19 @@ class Transaction extends App_Model_Std {
 	}
 
 	/**
-	 * @param int $transaction_paimeent_valide
+	 * @param int $transaction_paiement_valide
 	 */
-	public function setTransaction_paimeent_valide($transaction_paimeent_valide)
+	public function setTransaction_paiement_valide($transaction_paiement_valide)
 	{
-		$this->transaction_paimeent_valide = $transaction_paimeent_valide;
+		$this->transaction_paiement_valide = $transaction_paiement_valide;
 	}
 
 	/**
-	 * @return the  $transaction_paimeent_valide
+	 * @return the  $transaction_paiement_valide
 	 */
-	public function getTransaction_paimeent_valide()
+	public function getTransaction_paiement_valide()
 	{
-		return $this->transaction_paimeent_valide;
+		return $this->transaction_paiement_valide;
 	}
 
 	/**
@@ -239,6 +257,23 @@ class Transaction extends App_Model_Std {
 		return $this->transaction_evaluation_id;
 	}
 
+
+	/**
+	 * @param int $transaction_deleted
+	 */
+	public function setTransaction_deleted($transaction_deleted)
+	{
+		$this->transaction_deleted = $transaction_deleted;
+	}
+
+	/**
+	 * @return the $transaction_deleted
+	 */
+	public function getTransaction_deleted()
+	{
+		return $this->transaction_deleted;
+	}
+
 	/**
 	 * @param datetime $transaction_dateAdded
 	 */
@@ -271,5 +306,15 @@ class Transaction extends App_Model_Std {
 		return $this->transaction_dateUpdated;
 	}
 
+	public function getLastTransactionBidObject($enchere_id){
+		$objDB = new $this->_myDbClassName(); /* @var $objDB Db_Transaction */
+		$select = $objDB->GuestSearchSelectBuild();
+		$select->where('transaction_enchere_id = ?',$enchere_id);
+		$select->limit(1);
+		$select->order('transaction_date DESC');
+		$res = $this->getOneRowset($select);
+		return new TransactionSearch($res['transaction_id']);
+		//return $lastTransaction;
+	}
 
 }
