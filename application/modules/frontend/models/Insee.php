@@ -28,7 +28,7 @@ class Insee extends App_Model_Std {
 	protected $LAT = null;
 	protected $LONG = null;
 	protected $CP = null;
-	protected $dateUpdated = CURRENT_TIMESTAMP;
+	protected $dateUpdated = null;
 
 
 	/* /Champs de la table */

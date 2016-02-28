@@ -27,4 +27,14 @@ class Db_Transaction extends App_Model_Db {
 		return $select;
 	}
 
+/*	function GuestSearchSelectBuild(){
+		$select = $this->select()->setIntegrityCheck(false);
+		$select->from(array('transaction'=>$this->_myDbTableName),array("transaction_montant"));
+		//$select->join(array("enchere"=>'frontend_enchere_search'),"`transaction`.`transaction_enchere_id` = `enchere`.`enchere_id`",array("*"));
+		if($limit){
+			$select->limit($limit);
+		}
+		return $select;
+	}*/
+
 }

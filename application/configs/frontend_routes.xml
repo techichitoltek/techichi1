@@ -2,9 +2,15 @@
     <routes>
         <!-- INDEX POINT -->
         <home type="Zend_Controller_Router_Route">
-            <route>/test</route>
+            <route>/</route>
             <defaults module="frontend" controller="index" action="index"/>
         </home>
+
+        <home_acceuil type="Zend_Controller_Router_Route">
+            <route>/accueil</route>
+            <defaults module="frontend" controller="index" action="accueil"/>
+        </home_acceuil>
+
 
         <login type="Zend_Controller_Router_Route">
             <route>/login</route>

@@ -20,7 +20,11 @@ class CatalogueProduit extends App_Model_Std {
 	protected $catalogue_produits_description = null;
 	protected $catalogue_produits_prix_depart = null;
 	protected $catalogue_produits_prix_reserve = null;
+	protected $catalogue_produits_prix_fp = null;
+	protected $catalogue_produits_fp_delai = null;
+	protected $catalogue_produits_fp = 0;
 	protected $catalogue_produits_hasBibliothèque = 0;
+	protected $catalogue_produits_used = 0;
 	protected $catalogue_produits_deleted = 0;
 	protected $catalogue_produits_dateAdded = null;
 	protected $catalogue_produits_dateUpdated = null;
@@ -174,6 +178,54 @@ class CatalogueProduit extends App_Model_Std {
 	}
 
 	/**
+	 * @param float $catalogue_produits_prix_fp
+	 */
+	public function setCatalogue_produits_prix_fp($catalogue_produits_prix_fp)
+	{
+		$this->catalogue_produits_prix_fp = $catalogue_produits_prix_fp;
+	}
+
+	/**
+	 * @return the $catalogue_produits_prix_fp
+	 */
+	public function getCatalogue_produits_prix_fp()
+	{
+		return $this->catalogue_produits_prix_fp;
+	}
+
+	/**
+	 * @param int $catalogue_produits_fp_delai
+	 */
+	public function setCatalogue_produits_fp_delai($catalogue_produits_fp_delai)
+	{
+		$this->catalogue_produits_fp_delai = $catalogue_produits_fp_delai;
+	}
+
+	/**
+	 * @return the $catalogue_produits_fp_delai
+	 */
+	public function getCatalogue_produits_fp_delai()
+	{
+		return $this->catalogue_produits_fp_delai;
+	}
+
+	/**
+	 * @param int $catalogue_produits_fp
+	 */
+	public function setCatalogue_produits_fp($catalogue_produits_fp)
+	{
+		$this->catalogue_produits_fp = $catalogue_produits_fp;
+	}
+
+	/**
+	 * @return the $catalogue_produits_fp
+	 */
+	public function getCatalogue_produits_fp()
+	{
+		return $this->catalogue_produits_fp;
+	}
+
+	/**
 	 * @param int $catalogue_produits_hasBibliothèque
 	 */
 	public function setCatalogue_produits_hasBibliothèque($catalogue_produits_hasBibliothèque)
@@ -188,6 +240,24 @@ class CatalogueProduit extends App_Model_Std {
 	{
 		return $this->catalogue_produits_hasBibliothèque;
 	}
+
+
+	/**
+	 * @param int $catalogue_produits_used
+	 */
+	public function setCatalogue_produits_used($catalogue_produits_used)
+	{
+		$this->catalogue_produits_used = $catalogue_produits_used;
+	}
+
+	/**
+	 * @return the  $catalogue_produits_used
+	 */
+	public function getCatalogue_produits_used()
+	{
+		return $this->catalogue_produits_used;
+	}
+
 
 	/**
 	 * @param int $catalogue_produits_deleted
@@ -237,5 +307,24 @@ class CatalogueProduit extends App_Model_Std {
 		return $this->catalogue_produits_dateUpdated;
 	}
 
+	public function saveForSearch(){
+		$catalogueProduitSearchModel = new CatalogueProduitSearch($this->catalogue_produits_id);
+		$catalogueProduitSearch = clone($this);
+		$catalogueProduitSearch->_myDbClassName       = $catalogueProduitSearchModel->_myDbClassName;
+		$catalogueProduitSearch->_myDbPrimary         = $catalogueProduitSearchModel->_myDbPrimary;
+		$catalogueProduitSearch->_myMetierClassName   = $catalogueProduitSearchModel->_myMetierClassName;
+		$catalogueProduitSearch->_myDbTableName       = $catalogueProduitSearchModel->_myDbTableName;
+		$catalogueProduitSearch->_myDbFieldPrefix     = $catalogueProduitSearchModel->_myDbFieldPrefix;
+		$catalogueProduitSearch->save();
+	}
+
+	public function getMainImage(){
+		$mod_cat_bib = new CatalogueBibliotheque();
+		return $mod_cat_bib->getMainImageByProduitId($this->catalogue_produits_id);
+	}
+	public function getImageListe(){
+		$mod_cat_bib = new CatalogueBibliotheque();
+		return $mod_cat_bib->getListeByProduitId($this->catalogue_produits_id);
+	}
 
 }

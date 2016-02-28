@@ -40,6 +40,9 @@ class UserController extends App_Frontend_Controller
      */
     public function accueilAction()
     {
+    	if(!App_FlagFlippers_Manager::isRouteAllowed("user_accueil")){
+    		//$this->getHelper("redirector")->gotoRoute(array(),"login");
+    	}
     	$user = $this->user; /* @var $user User */
     	$this->view->user = $user;
     	if($user->getId()){

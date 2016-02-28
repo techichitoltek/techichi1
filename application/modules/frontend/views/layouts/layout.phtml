@@ -22,6 +22,9 @@ $this->headScript()->appendFile($this->designUrl() . '/js/jquery-ui.min.js');
 $this->headLink()->appendStylesheet($this->designUrl() . '/css/font-awesome-4.3.0/css/font-awesome.min.css');
 $this->headLink()->appendStylesheet($this->designUrl() . '/css/myzendlib.css');
 
+// down counter
+$this->headLink()->appendStylesheet($this->designUrl() . '/css/downcount.css');
+
 //Add the ZFDebug Toolbar only if enabled in app.ini
 if(Zend_Controller_Front::getInstance()->hasPlugin('ZFDebug_Controller_Plugin_Debug')){
     $this->headScript()->appendFile($this->designUrl() . '/js/zfdebug.js');
@@ -45,6 +48,9 @@ $this->AutoloadResources();
 
 	<!-- jquery lib -->
 	<script src="<?php echo $this->serverUrl().$this->designUrl();?>/lib/DataTables-1.10.7/media/js/jquery.js?<?=mt_rand();?>"></script>
+
+	<!-- downcounter -->
+	<script src="<?php echo $this->serverUrl().$this->designUrl();?>/js/downcount.js?<?=mt_rand();?>"></script>
 
 
     <?php echo $this->headTitle() . PHP_EOL;?>

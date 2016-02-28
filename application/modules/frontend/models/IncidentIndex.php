@@ -13,8 +13,11 @@ class IncidentIndex extends App_Model_Std {
 	/* Champs de la table */
 
 	protected $index_id = 0;
+	protected $index_enchere_statut_id = null;
+	protected $index_origine = 0;
+	protected $index_note = "";
 	protected $index_libelle = "";
-	protected $index_libelle_show = "";
+	protected $index_libelle_show = null;
 	protected $index_dateAdded = null;
 	protected $index_dateUpdated = null;
 
@@ -52,6 +55,54 @@ class IncidentIndex extends App_Model_Std {
 	public function getIndex_id()
 	{
 		return $this->index_id;
+	}
+
+	/**
+	 * @param int $index_enchere_statut_id
+	 */
+	public function setIndex_enchere_statut_id($index_enchere_statut_id)
+	{
+		$this->index_enchere_statut_id = $index_enchere_statut_id;
+	}
+
+	/**
+	 * @return the  $index_enchere_statut_id
+	 */
+	public function getIndex_enchere_statut_id()
+	{
+		return $this->index_enchere_statut_id;
+	}
+
+	/**
+	 * @param int $index_origine
+	 */
+	public function setIndex_origine($index_origine)
+	{
+		$this->index_origine = $index_origine;
+	}
+
+	/**
+	 * @return the  $index_origine
+	 */
+	public function getIndex_origine()
+	{
+		return $this->index_origine;
+	}
+
+	/**
+	 * @param int $index_note
+	 */
+	public function setIndex_note($index_note)
+	{
+		$this->index_note = $index_note;
+	}
+
+	/**
+	 * @return the  $index_note
+	 */
+	public function getIndex_note()
+	{
+		return $this->index_note;
 	}
 
 	/**

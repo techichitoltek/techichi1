@@ -5,7 +5,7 @@
  *
  * @category App
  * @package App_Model
- * @copyright TD-System
+ * @copyright RCWEB
  */
 
 class BaseUser extends App_Model

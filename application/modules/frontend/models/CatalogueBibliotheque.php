@@ -169,5 +169,23 @@ class CatalogueBibliotheque extends App_Model_Std {
 		return $this->catalogue_bibliotheque_dateUpdated;
 	}
 
+	public function getListeByProduitId($produitId){
+		$objDB = new $this->_myDbClassName(); /* @var $objDB Db_CatalogueBibliotheque */
+		$select = $objDB->mySelectBuild();
+		$select->where('catalogue_bibliotheque_produit_id = ?',$produitId);
+		$select->where('catalogue_bibliotheque_deleted = 0');
+		return $this->getListe(false,$select);
+	}
 
+	public function getMainImageByProduitId($produitId){
+		$objDB = new $this->_myDbClassName(); /* @var $objDB Db_CatalogueBibliotheque */
+		$select = $objDB->mySelectBuild();
+		$select->where('catalogue_bibliotheque_produit_id = ?',$produitId);
+		$select->where('catalogue_bibliotheque_deleted = 0');
+		$select->where('catalogue_bibliotheque_type = 1');
+		$select->limit(1);
+		$res = $this->getOneRowset($select);
+		$bib = new CatalogueBibliotheque($res['catalogue_bibliotheque_id']);
+		return $bib->getCatalogue_bibliotheque_file();
+	}
 }
