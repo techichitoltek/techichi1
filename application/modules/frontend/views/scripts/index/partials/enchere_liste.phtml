@@ -1,0 +1,58 @@
+<?php
+$now = new Zend_Date();
+$mod_tools = new Tools();
+$activeEnchereListe = $this->activeEnchereListe; /* @var $activeEnchereListe EnchereSearch */
+?>
+Liste des enchères en cours<br>
+===============================
+<br><br>
+
+<?php
+/*- titre produit (tronqué à partir de xx caractères)
+- image
+- prix départ ou prix en cours (montant du dernier bid)
+- + xx EUR de frais de livraison ou livraison gratuite
+- il reste xx jours ( ex : il reste 1j4h (Dimanche, 12h26 ou aujourd'hui 21:00)*/
+
+
+foreach ($activeEnchereListe as $enchere): /* @var $enchere EnchereSearch */
+	$now = new Zend_Date(/*new Zend_Locale('fr_FR')*/);
+	$start = new Zend_Date($enchere->getEnchere_start(),Zend_Date::ISO_8601);
+	// check date start est supérieure à now
+	if($now->isLater($start)){
+		$produit = $enchere->getProduit(); /* @var $produit CatalogueProduitSearch */
+		$mainImage = $produit->getCatalogue_produits_hasBibliothèque() ?
+		$this->serverUrl().$this->designUrl().'/catalogue/img/'.$produit->getMainImage() : $this->serverUrl().$this->designUrl().'/images/'.ParamCustom::param("FRONTEND.CATALOGUE_DEFAULT_IMAGE","FRONTEND");
+		$fraisport = $produit->getCatalogue_produits_fp() ? $produit->getCatalogue_produits_prix_fp().' EUR':'Livraison gratuite';
+	//$timeElapsed = $mod_tools->getElapsedTime($now->toString('yyyy-MM-dd HH:mm:ss'),$enchere->getEnchere_end());
+		$lastTransactionBid = $enchere->getLastTransactionBid(); /* @var $lastTransactionBid TransactionSearch */
+	?>
+		<hr>
+		Id: <?=$enchere->getEnchere_id();?><br>
+		Titre: <?=$enchere->getProduit()->getCatalogue_produits_titre();?><br>
+		<img style="width:150px;height:150px;" src="<?=$mainImage;?>"><br>
+		Prix <?=$lastTransactionBid->getTransaction_montant();?> EUR <br>
+		<?=$fraisport;?><br>
+		<?php
+		$dateFinEnchere = $fin = new Zend_Date($enchere->getEnchere_end());
+		$dateFinEnchere = $dateFinEnchere->toString('MM/dd/yyyy HH:mm');
+		$newDateTime = date('h:i A', strtotime($dateFinEnchere));
+		?>
+		<div id="countdown<?=$enchere->getEnchere_id();?>"></div>
+		<script>
+		CountDownTimer('<?=$fin->toString('MM/dd/yyyy ');?><?=$newDateTime;?>', 'countdown<?=$enchere->getEnchere_id();?>');
+		</script>
+		<?php // echo=$timeElapsed;?>
+<?php
+	}
+endforeach;
+
+?>
+
+
+<?php
+//2016-02-28 15:00:00 CountDownTimer('28/01/2016 06:0 AM', 'countdown');
+//$currentDateTime = '02/28/2016 15:00:00';
+//$newDateTime = date('h:i A', strtotime($currentDateTime));
+//debug($newDateTime);
+?>
